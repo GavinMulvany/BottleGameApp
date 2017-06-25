@@ -12,12 +12,25 @@
     tools:context="com.example.gavinmulvany.bottlegameapp.BottleActivity">
 
 
-    <ImageView
-        android:id="@+id/iv_bottle"
+
+    <ImageButton
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/wine"
+        android:id="@+id/ib_bottle"
         android:layout_centerVertical="true"
-        android:scaleType="centerInside"
-        android:src="@drawable/wine"/>
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerInside"/>
+
+
+    <Button
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GO"
+        android:id="@+id/b_go"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+
 </RelativeLayout>
