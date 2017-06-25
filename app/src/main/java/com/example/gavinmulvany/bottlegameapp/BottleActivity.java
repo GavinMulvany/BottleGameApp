@@ -16,6 +16,8 @@ public class BottleActivity extends AppCompatActivity {
     ImageButton ib_bottle;
     Button b_go;
     Random r;
+    int angle;
+    boolean restart = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +32,30 @@ public class BottleActivity extends AppCompatActivity {
         b_go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RotateAnimation rotate = new RotateAnimation(0, r.nextInt(3600)+360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5F);
-                rotate.setFillAfter(true);
-                rotate.setDuration(1000);
-                rotate.setInterpolator(new AccelerateDecelerateInterpolator());
+                if(restart){
+                    int temp = angle % 360;
+                    RotateAnimation rotate = new RotateAnimation(temp, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5F);
+                    rotate.setFillAfter(true);
+                    rotate.setDuration(1000);
+                    rotate.setInterpolator(new AccelerateDecelerateInterpolator());
 
-                ib_bottle.startAnimation(rotate);
+                    ib_bottle.startAnimation(rotate);
+
+                    b_go.setText("G0");
+                    restart = false;
+                }
+                else {
+                    angle = r.nextInt() + 360;
+                    RotateAnimation rotate = new RotateAnimation(0, angle, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5F);
+                    rotate.setFillAfter(true);
+                    rotate.setDuration(1000);
+                    rotate.setInterpolator(new AccelerateDecelerateInterpolator());
+
+                    ib_bottle.startAnimation(rotate);
+
+                    b_go.setText("RESET");
+                    restart = true;
+                }
             }
         });
 
