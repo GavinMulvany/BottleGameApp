@@ -33,8 +33,8 @@ public class BottleActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(restart){
-                    int temp = angle % 360;
-                    RotateAnimation rotate = new RotateAnimation(temp, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5F);
+                    angle = angle % 360;
+                    RotateAnimation rotate = new RotateAnimation(angle, 360, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5F);
                     rotate.setFillAfter(true);
                     rotate.setDuration(1000);
                     rotate.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -45,7 +45,7 @@ public class BottleActivity extends AppCompatActivity {
                     restart = false;
                 }
                 else {
-                    angle = r.nextInt() + 360;
+                    angle = r.nextInt(3600) + 360;
                     RotateAnimation rotate = new RotateAnimation(0, angle, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5F);
                     rotate.setFillAfter(true);
                     rotate.setDuration(1000);
