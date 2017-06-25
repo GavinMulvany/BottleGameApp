@@ -9,7 +9,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.gavinmulvany.bottlegameapp.BottleActivity">
+    tools:context="com.example.gavinmulvany.bottlegameapp.BottleActivity"
+    android:background="#FFFFFF">
 
 
 
@@ -20,7 +21,8 @@
         android:id="@+id/ib_bottle"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:scaleType="centerInside"/>
+        android:scaleType="centerInside"
+        android:background="#FFFFFF" />
 
 
     <Button
